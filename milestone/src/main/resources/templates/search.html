@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html layout:decorate="layouts/defaultTemplate">
+
+<head>
+    <title>Products</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com.ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8"/>
+    <style>
+        * {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        h2 {
+            color: blue;
+        }
+
+        p {
+            font-style: italic;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 2px;
+        }
+    </style>
+</head>
+
+<body layout:fragment="content">
+    <h1 th:text="${title}"></h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Product Name</th>
+            <th>Date</th>
+            <th>Lethality Rating</th>
+            <th>Price</th>
+        </tr>
+        <tr th:each="product : ${products}">
+            <td th:text="${product.id}">Id</td>
+            <td th:text="${product.gadgetName}">Name</td>
+            <td th:text="${product.dateOfOrigin}">Date</td>
+            <td th:text="${product.lethalityRating}">Lethality Rating</td>
+            <td th:text="${product.price}">Price</td>
+            <td>
+                <a th:href="@{/products/edit}" class="btn btn-primary">Edit</a>
+                <a th:href="@{/products/delete/{id}(id=${product.id})}" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+    </table>
+
+</body>
+
+</html>
