@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html layout:decorate="layouts/defaultTemplate">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com.ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Edit Product</title>
+</head>
+<body layout:fragment="content">    
+    <h1>Edit Product</h1>
+    <form class="form" action="#" th:action="@{/products/processEdit}" th:object="${product}" method="post">
+        <table>
+            <tr>
+                <tr>
+                    <td>Id</td>
+                    <td><input type="text" th:field="*{id}"/></td>
+                </tr>
+                <tr>
+                    <td>Gadget Name</td>
+                    <td><input type="text" th:field="*{gadgetName}"/></td>
+                </tr>
+                <tr>
+                    <td>Date</td>
+                    <td><input type="text" th:field="*{dateOfOrigin}"/></td>
+                </tr>
+                <tr>
+                    <td>Instructions</td>
+                    <td><input type="text" th:field="*{instructions}"/></td>
+                </tr>
+                <tr>
+                    <td>Photo File Name</td>
+                    <td><input type="text" th:field="*{photoFileName}"/></td>
+                </tr>
+                <tr>
+                    <td>Description</td>
+                    <td><input type="text" th:field="*{description}"/></td>
+                </tr>
+                <tr>
+                    <td>Lethality Rating</td>
+                    <td><input type="text" th:field="*{lethalityRating}"/></td>
+                </tr>
+                <tr>
+                    <td>Price</td>
+                    <td><input type="text" th:field="*{price}"/></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input type="submit" value="Save"/></td>
+                </tr>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
